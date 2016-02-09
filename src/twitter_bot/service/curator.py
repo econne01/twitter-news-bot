@@ -5,9 +5,18 @@ class Curator(object):
     INTERESTING_THRESHOLD = 0.5
 
     INTERESTING_KEYWORDS = [
+        'artificial',
+        'brain',
+        'education',
+        'intelligence',
         'interesting',
+        'learning',
         'neuroscience',
-        'phillies'
+        'phillies',
+        'robot',
+        'science',
+        'software',
+        'twitter'
     ]
 
     def keep_interesting_items(self, items):

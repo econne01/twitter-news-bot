@@ -6,6 +6,8 @@ setup(
     author = 'Eric Connelly',
     description = 'A Twitter Bot to tweet about curated news content',
     url = 'https://github.com/econne01/twitter-news-bot',
-    install_requires = [],
+    install_requires = [
+        'requests>=2.9,<3.0'
+    ],
     packages = find_packages(),
 )
