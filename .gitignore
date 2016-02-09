@@ -64,3 +64,6 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+# Any Config files that need to remain hidden values
+src/twitter_bot/config/*
