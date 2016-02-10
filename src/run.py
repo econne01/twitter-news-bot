@@ -12,15 +12,15 @@ from twitter_bot.service.twitter import TwitterService
 def main():
     news_reader = NewsReader()
     headlines = news_reader.get_headlines()
-    print 'All headlines:'
-    print headlines
 
     curator = Curator()
     interesting_headlines = curator.keep_interesting_items(headlines)
 
     if interesting_headlines:
+        tweet = random.choice(interesting_headlines)
+        print tweet
         twitter_api = TwitterService()
-        twitter_api.post_tweet(random.choice(interesting_headlines)[:140])
+        twitter_api.post_tweet(tweet)
 
 
 if __name__ == '__main__':
