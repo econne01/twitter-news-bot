@@ -1,3 +1,10 @@
 NEW_YORK_TIMES_API_KEYS = {
-    'TOP_STORIES' : 'NYT_TOP_STORIES_KEY'
+    'TOP_STORIES' : 'top-stories-value'
+}
+
+TWITTER_API_KEYS = {
+    'API_KEY' : 'api-key-value'
+    'API_SECRET' : 'api-secret-value'
+    'ACCESS_TOKEN' : 'access-token-value'
+    'ACCESS_SECRET' : 'access-secret-value'
 }
