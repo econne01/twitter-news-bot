@@ -67,3 +67,4 @@ target/
 
 # Any Config files that need to remain hidden values
 src/twitter_bot/config/*
+api_keys.py
