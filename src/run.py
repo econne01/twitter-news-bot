@@ -6,9 +6,7 @@ for news of interest and Tweet about it
 import argparse
 import random
 
-from twitter_bot.service.curator import Curator
-from twitter_bot.service.news_reader import NewsReader
-from twitter_bot.service.twitter import TwitterService
+from twitter_bot.bot import Bot
 
 
 def _get_command_args():
@@ -22,21 +20,8 @@ def _get_command_args():
 def main():
     command_args = _get_command_args()
 
-    news_reader = NewsReader()
-    headlines = news_reader.get_headlines()
-
-    curator = Curator()
-    interesting_headlines = curator.keep_interesting_items(headlines)
-
-    if interesting_headlines:
-        tweet = random.choice(interesting_headlines)
-        if command_args.debug:
-            print tweet
-        else:
-            twitter_api = TwitterService()
-            twitter_api.post_tweet(tweet)
-    else:
-        print 'No interesting news found'
+    bot = Bot(debug=command_args.debug)
+    bot.post_interesting_news()
 
 
 if __name__ == '__main__':
