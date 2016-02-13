@@ -11,6 +11,7 @@ class Curator(object):
         'intelligence',
         'interesting',
         'learning',
+        'lifetime',
         'neuroscience',
         'phillies',
         'robot',
@@ -19,21 +20,24 @@ class Curator(object):
         'twitter'
     ]
 
-    def keep_interesting_items(self, items):
+    def keep_interesting_items(self, news_bites):
         """Read a list of items and return only the interesting ones
 
-        @param {List of Strings} items
+        @param {Array.<twitter_bot.model.news_bite.NewsBite>} news_bites
+        @returns {Array.<twitter_bot.model.news_bite.NewsBite>}
         """
         interesting_items = []
-        for item in items:
-            if self._get_interest_score(item) >= self.INTERESTING_THRESHOLD:
-                interesting_items.append(item)
+        for news_bite in news_bites:
+            if self._get_interest_score(news_bite) >= self.INTERESTING_THRESHOLD:
+                interesting_items.append(news_bite)
         return interesting_items
 
-    def _get_interest_score(self, item):
+    def _get_interest_score(self, news_bite):
         interest_score = 0.0
         for keyword in self.INTERESTING_KEYWORDS:
-            if keyword in item.lower():
+            if not news_bite.headline:
+                continue
+            if keyword in news_bite.headline.lower():
                 interest_score = 1.0
         return interest_score
 

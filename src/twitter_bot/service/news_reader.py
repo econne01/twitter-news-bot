@@ -8,8 +8,12 @@ class NewsReader(object):
             NewYorkTimesService()
         ]
 
-    def get_headlines(self):
-        headlines = []
+    def get_news(self):
+        """Return a list of all currently available News items
+
+        @returns {Array.<twitter_bot.model.news_bite.NewsBite>}
+        """
+        news = []
         for api_service in self.news_services:
-            headlines.extend(api_service.get_latest_headlines())
-        return headlines
+            news.extend(api_service.get_news_bites())
+        return news

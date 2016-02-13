@@ -4,7 +4,6 @@ It is intended to be run as a cronjob to periodically scan
 for news of interest and Tweet about it
 """
 import argparse
-import random
 
 from twitter_bot.bot import Bot
 
