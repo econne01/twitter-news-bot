@@ -57,6 +57,11 @@ class NewYorkTimesService(BaseNewsService):
         """
         url = self._create_api_url(section, 'json')
         response = requests.get(url, params = {'api-key': API_KEYS['TOP_STORIES']})
-        articles = response.json()['results']
+        response_json = response.json()
+        try:
+            articles = response_json['results']
+        except KeyError as exc:
+            print exc
+            print response.json()
         return [self._convert_json_to_news_bite(article) for article in articles]
 
