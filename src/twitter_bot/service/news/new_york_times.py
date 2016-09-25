@@ -1,4 +1,5 @@
 import re
+import time
 import requests
 
 from twitter_bot.config.api_keys import NEW_YORK_TIMES_API_KEYS as API_KEYS
@@ -30,6 +31,7 @@ class NewYorkTimesService(BaseNewsService):
         news_bites = []
         for section in SECTIONS:
             news_bites += self._get_section_news(section)
+            time.sleep(1)  # Sleep 1 second so we don't exceed API rate of 5 calls per second
         return news_bites
 
     def _convert_json_to_news_bite(self, nyt_article):
