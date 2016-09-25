@@ -2,6 +2,8 @@ GOOGLE_API_KEYS = {
     'URL_SHORTENER_API_KEY': 'url-shortener-api-key-value'
 }
 
+GUARDIAN_API_KEY = 'guardian-api-value'
+
 NEW_YORK_TIMES_API_KEYS = {
     'TOP_STORIES' : 'top-stories-value'
 }

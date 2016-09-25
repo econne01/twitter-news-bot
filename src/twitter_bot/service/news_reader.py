@@ -1,10 +1,12 @@
 """An aggregator service to collect headlines from all news API services"""
+from twitter_bot.service.news.guardian import GuardianService
 from twitter_bot.service.news.new_york_times import NewYorkTimesService
 
 class NewsReader(object):
 
     def __init__(self):
         self.news_services = [
+            GuardianService(),
             NewYorkTimesService()
         ]
 
