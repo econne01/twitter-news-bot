@@ -72,7 +72,7 @@ class GuardianService(BaseNewsService):
             page += 1
         return results
 
-    def _get_recent_news(self, since_days=1, section=None):
+    def _get_recent_news(self, since_days=3, section=None):
         """Call the Guardian API for recent news items (articles only)
 
         @param {integer} since_days - how many days to set filter limit for "recent"
@@ -90,7 +90,7 @@ class GuardianService(BaseNewsService):
         articles = self._get_all_page_results(api_url)
         return [self._convert_json_to_news_bite(article) for article in articles]
 
-    def _get_section_news(self, section, since_days=1):
+    def _get_section_news(self, section, since_days=3):
         """Return a list of NewsBites from given section API
 
         @returns {Array.<twitter_bot.model.news_bite.NewsBite>}
