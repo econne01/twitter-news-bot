@@ -4,7 +4,7 @@
 class NewsBite(object):
 
     def __init__(self, url, author=None, category=None, headline=None,
-                 publish_date=None, synopsis=None):
+                 publish_date=None, synopsis=None, text=None, **kwargs):
         self.url = url
         if author:
             self.author = author
@@ -16,5 +16,7 @@ class NewsBite(object):
             self.publish_date = publish_date
         if synopsis:
             self.synopsis = synopsis
+        if text:
+            self.text = text
         self.tags = []
 
