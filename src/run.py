@@ -20,8 +20,7 @@ def main():
     command_args = _get_command_args()
 
     bot = Bot(debug=command_args.debug)
-    bot.get_interesting_news()
-    # bot.post_interesting_news()
+    bot.post_interesting_news()
 
 
 if __name__ == '__main__':
