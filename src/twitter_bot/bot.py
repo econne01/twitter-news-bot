@@ -19,8 +19,8 @@ class Bot(object):
         self.twitter_api = TwitterService()
         self.debug_mode = debug
 
-    def post_interesting_news(self):
-        """Scan news for interesting items and post (ie, Tweet) about one"""
+    def get_interesting_news(self):
+        """Scan news for interesting items and return one"""
         news_bites = self.reader.get_news()
 
         interesting_news = self.curator.keep_interesting_items(news_bites)
@@ -28,13 +28,18 @@ class Bot(object):
             interesting_news = self._filter_out_old_news(interesting_news)
             news_bite = random.choice(interesting_news)
             tweet = self._generate_tweet(news_bite)
-
-            if self.debug_mode:
-                print tweet
-            else:
-                self.twitter_api.post_tweet(tweet)
         else:
-            print 'No interesting news found'
+            tweet = 'No interesting news found'
+
+        if self.debug_mode:
+            print(tweet)
+        return tweet
+
+    def post_interesting_news(self):
+        """Scan news for interesting items and post (ie, Tweet) about one"""
+        if not self.debug_mode:
+            tweet = self.get_interesting_news()
+            self.twitter_api.post_tweet(tweet)
 
     def _filter_out_old_news(self, news_bites):
         """Filter out any news bites that have already been tweeted in the past 100 tweets"""
