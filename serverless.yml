@@ -47,9 +47,9 @@ provider:
 
 # you can add packaging information here
 #package:
-  include:
+#  include:
 #    - include-me.py
-    - src/twitter_bot/**
+#    - include-me-dir/**
 #  exclude:
 #    - exclude-me.py
 #    - exclude-me-dir/**
