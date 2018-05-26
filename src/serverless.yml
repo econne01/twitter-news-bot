@@ -13,6 +13,13 @@
 
 service: cool-news-twitter-bot
 
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
+
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
@@ -56,7 +63,7 @@ provider:
 
 functions:
   tweet:
-    handler: src/twitter_handler.get_interesting_news
+    handler: twitter_handler.get_interesting_news
     events:
       - http:
           path: get/tweets
