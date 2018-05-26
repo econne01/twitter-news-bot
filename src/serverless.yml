@@ -27,6 +27,7 @@ custom:
 provider:
   name: aws
   runtime: python3.6
+  timeout: 30 # optional, in seconds, default is 6
 
 # you can overwrite defaults here
 #  stage: dev

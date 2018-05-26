@@ -16,4 +16,11 @@ or
 
   export AWS_PROFILE=personal-serverless
 
+## Deploying
+To test
 
+  serverless invoke local -f tweet
+
+To Deploy
+
+  serverless deploy
