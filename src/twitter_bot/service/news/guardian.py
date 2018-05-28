@@ -86,7 +86,7 @@ class GuardianService(BaseNewsService):
         }
         if section:
             params['section'] = section
-        api_url = self.BASE_API_URL + '?{params}'.format(params=urllib.urlencode(params))
+        api_url = self.BASE_API_URL + '?{params}'.format(params=urllib.parse.urlencode(params))
         articles = self._get_all_page_results(api_url)
         return [self._convert_json_to_news_bite(article) for article in articles]
 

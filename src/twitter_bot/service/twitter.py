@@ -38,7 +38,7 @@ class TwitterService(object):
             'status': tweet[:TWEET_CHAR_LIMIT]
         }
         response, content = self.twitter_client.request(POST_URL, method='POST',
-                                                        body=urllib.urlencode(post_data))
+                                                        body=urllib.parse.urlencode(post_data))
         return response
 
     def _get_recent_tweets(self, tweet_count=20):
@@ -51,7 +51,7 @@ class TwitterService(object):
             'screen_name': TWITTER_USERNAME,
             'count': tweet_count
         }
-        GET_URL = TIMELINE_URL + '?{params}'.format(params=urllib.urlencode(get_params))
+        GET_URL = TIMELINE_URL + '?{params}'.format(params=urllib.parse.urlencode(get_params))
         resp, content = self.twitter_client.request(GET_URL, method='GET')
         return json.loads(content)
 

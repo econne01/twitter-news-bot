@@ -63,7 +63,7 @@ class NewYorkTimesService(BaseNewsService):
         try:
             articles = response_json['results']
         except KeyError as exc:
-            print exc
-            print response.json()
+            print(exc)
+            print(response.json())
         return [self._convert_json_to_news_bite(article) for article in articles]
 
