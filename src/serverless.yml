@@ -63,12 +63,17 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  tweet:
-    handler: twitter_handler.get_interesting_news
+  # get_news:
+    # handler: twitter_handler.get_interesting_news
+    # events:
+      # - http:
+          # path: news
+          # method: get
+
+  post_news:
+    handler: twitter_handler.post_interesting_news
     events:
-      - http:
-          path: get/tweets
-          method: get
+      - schedule: rate(335 minutes)
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

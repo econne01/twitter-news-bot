@@ -23,7 +23,7 @@ def get_interesting_news(event, context):
 
     return response
 
-def post_interesting_news():
+def post_interesting_news(event, context):
     bot = Bot(debug=False)
     bot.post_interesting_news()
 
